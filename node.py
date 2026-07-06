@@ -206,12 +206,12 @@ def request_critical_section(node_id):
             "clock": lamport_clock,
             "content": "Quero entrar na região crítica"
         }
-    success = send_packet(node_id, target_id, packet)
+        success = send_packet(node_id, target_id, packet)
 
-    if success:
-        print(f"Nó {node_id} enviou REQUEST para Nó {target_id} | clock={lamport_clock}")
-    else:
-        print(f"Erro: Nó {target_id} não está rodando.")
+        if success:
+            print(f"Nó {node_id} enviou REQUEST para Nó {target_id} | clock={lamport_clock}")
+        else:
+            print(f"Erro: Nó {target_id} não está rodando.")
 
 def check_enter_critical_section(node_id):
     global requesting_cs
